@@ -1,0 +1,74 @@
+.maincont {
+	margin-top: 100px;
+	padding: 10px;
+}
+.firstpage {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding-left: 280px;
+	padding-right: 280px;
+}
+.lvlselect {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding-left: 280px;
+	padding-right: 280px;
+}
+.nextbtn {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	float: right;
+	width: 200px;
+}
+.startbtn {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	width:500px;
+	height: 100px;
+	font-size: 50px;
+	padding-bottom: 0.7rem;
+}
+#lvlbtns {
+	padding-top: 10px;
+	float: center;
+}
+.text-howto {
+	padding-top: 50px;
+	padding-left: 80px;
+	padding-right: 80px;
+}
+.ptext-howto {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.progresstimer {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.exercises {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 250px;
+	padding-right: 250px;
+}
+.results {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 315px;
+	padding-right: 250px;
+}
+.donetxt {
+	font-size: 20px;
+	font-weight: 100;
+}
+#ex0, #ex1, #ex2, #ex3, #ex4, #ex5, #ex6, #ex7, #ex8 {
+	width: 150px;
+}
+#res0, #res1, #res2, #res3, #res4, #res5, #res6, #res7, #res8 {
+	width: 160px;
+}
+#clockdiv {
+	text-align: center;
+    font-size: 45px;
+    font-weight: 100;
+}
