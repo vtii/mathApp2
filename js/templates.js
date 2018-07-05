@@ -1,4 +1,3 @@
-
 // first page (name_input)
 const page_0 = ejs.render(`
 	<div class="container maincont border">
@@ -451,7 +450,7 @@ const page_7 = ejs.render(`
 							<th scope="col">Name</th>
 							<th scope="col">Punkte</th>
 							<th scope="col">Gespielte Spiele</th>
-							<th scope="col">Richtig / von allen Spielen</th>
+							<th scope="col">Richtig / von Aufgaben</th>
 
 							</tr>
 						</thead>

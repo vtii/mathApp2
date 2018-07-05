@@ -17,6 +17,7 @@ function initializeGameState(playerName = null) {
 // #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #
 // #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #
 
+
 // get and set [name] and [timer] for info-screen
 function setINFO() {
 	document.getElementById("name_value").innerHTML = gameData.playerName;
