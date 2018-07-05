@@ -12,6 +12,13 @@ function initializeGameState(playerName = null) {
 		exercises: [],
 		timer: null,
 		rank: load(),
+
+		currentExercisePage: 0,
+
+		exerciseConfig: {
+			pages: 3,
+			exercisesPerPage: 3,
+		},
 	};
 }
 // #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #
@@ -70,24 +77,27 @@ function exerciseGenerator() {
 
 
 // [index] for exercises [0-8]
-function setIndexForExercise(index) {
-	document.getElementById(`ex${index}`).innerHTML = gameData.exercises[index].a + gameData.exercises[index].operator + gameData.exercises[index].b + " = ";
+function setIndexForExercise(index, page) {
+	const exercisesPerPage = gameData.exerciseConfig.exercisesPerPage; // 3
+	let realExerciseIndex = index + (page * exercisesPerPage)
+
+	document.getElementById(`ex${index}`).innerHTML = gameData.exercises[realExerciseIndex].a + gameData.exercises[realExerciseIndex].operator + gameData.exercises[realExerciseIndex].b + " = ";
 };
-function setExercises0() {
-	setIndexForExercise(0);
-	setIndexForExercise(1);
-	setIndexForExercise(2);
+
+function setExercises(page) {
+	const exercisesPerPage = gameData.exerciseConfig.exercisesPerPage;
+
+	for (let i = 0; i < exercisesPerPage; i++) {
+		setIndexForExercise(i, page);
+	}
 };
-function setExercises1() {
-	setIndexForExercise(3);
-	setIndexForExercise(4);
-	setIndexForExercise(5);
+
+function setResultExercises() {
+	for (let i = 0; i < gameData.exercises.length; i++) {
+		setIndexForExercise(i, 0);
+	}
 };
-function setExercises2() {
-	setIndexForExercise(6);
-	setIndexForExercise(7);
-	setIndexForExercise(8);
-};
+
 
 
 // [index] for result [input]

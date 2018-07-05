@@ -1,5 +1,5 @@
 // first page (name_input)
-const page_0 = ejs.render(`
+const page_0 = `
 	<div class="container maincont border">
 		<div class="row">
 
@@ -22,10 +22,10 @@ const page_0 = ejs.render(`
 
 		</div>
 	</div>
-`);
+`;
 
 // level select
-const page_1 = ejs.render(`
+const page_1 = `
 	<div class="container maincont border">
 		<div class="row">
 
@@ -55,10 +55,10 @@ const page_1 = ejs.render(`
 
 		</div>
 	</div>
-`);
+`;
 
 // infoscreen
-const page_2 = ejs.render(`
+const page_2 = `
 	<div class="container maincont border">
 		<div class="row">
 			<div class="col-12 text-howto">
@@ -92,10 +92,10 @@ const page_2 = ejs.render(`
 
 		</div>
 	</div>
-`);
+`;
 
-// exercise_group 1/3
-const page_3 = ejs.render(`
+// exercise_groups
+const page_3 = `
 	<div class="container maincont border">
 		<div class="row">
 
@@ -114,33 +114,8 @@ const page_3 = ejs.render(`
 				</div>
 			</div>
 
-			<div class="col-12">
-				<div>
-					<div class="input-group input-group-lg exercises">
-						<div class="input-group-prepend">
-							<span id="ex0" class="input-group-text"></span>
-						</div>
-						<input id="playerRes0" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-					</div>
-				</div>
+			<div id="exerciseInputBoxes" class="col-12">
 
-				<div>
-					<div class="input-group input-group-lg exercises">
-						<div class="input-group-prepend">
-							<span id="ex1" class="input-group-text"></span>
-						</div>
-						<input id="playerRes1" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-					</div>
-				</div>
-
-				<div>
-					<div class="input-group input-group-lg exercises">
-						<div class="input-group-prepend">
-							<span id="ex2" class="input-group-text"></span>
-						</div>
-						<input id="playerRes2" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-					</div>
-				</div>
 			</div>
 
 			<div class="col-12">
@@ -153,272 +128,30 @@ const page_3 = ejs.render(`
 
 		</div>
 	</div>
-`);
+`;
 
-// exercise_group 2/3
-const page_4 = ejs.render(`
-	<div class="container maincont border">
-		<div class="row">
-
-			<div class="col-12">
-				<div class="border" style="padding-top:12px; margin-left:320px; margin-right: 320px;">
-					<p class="text-center donetxt" style="font-size: 50px">
-						<span id="countdown1">Teil 2/3 GO!</span>
-					</p>
-				</div>
-			</div>
-
-			<div class="col-12 progresstimer">
-				<div class="progress">
-				<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 100%"></div>
-				</div>
-			</div>
-
-
-			<div class="col-12">
-				<div>
-					<div class="input-group input-group-lg exercises">
-						<div class="input-group-prepend">
-							<span id="ex3" class="input-group-text"></span>
-						</div>
-						<input id="playerRes3" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-					</div>
-				</div>
-
-				<div>
-					<div class="input-group input-group-lg exercises">
-						<div class="input-group-prepend">
-							<span id="ex4" class="input-group-text"></span>
-						</div>
-						<input id="playerRes4" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-					</div>
-				</div>
-
-				<div>
-					<div class="input-group input-group-lg exercises">
-						<div class="input-group-prepend">
-							<span id="ex5" class="input-group-text"></span>
-						</div>
-						<input id="playerRes5" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-					</div>
-				</div>
-			</div>
-
-				<div class="col-12">
-					<div class="d-flex justify-content-center">
-						<div>
-							<button onclick="validatePage_4()" type="button" class="btn btn-outline-primary nextbtn">Weiter</button>
-						</div>
-					</div>
-				</div>
-
+// one exercise box, input for player result
+const exerciseInputBoxGenerator = (index) => `
+	<div class="input-group input-group-lg exercises">
+		<div class="input-group-prepend">
+			<span id="ex${index}" class="ex-result input-group-text"></span>
 		</div>
+		<input id="playerRes${index}" type="number" class="res-result form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
 	</div>
-`);
+`;
 
-// exercise_group 3/3
-const page_5 = ejs.render(`
-	<div class="container maincont border">
-		<div class="row">
-
-			<div class="col-12">
-				<div class="border" style="padding-top:12px; margin-left:320px; margin-right: 320px;">
-					<p class="text-center donetxt" style="font-size: 50px">
-						<span id="countdown2">Teil 3/3 LOS!</span>
-					</p>
-				</div>
-			</div>
-
-			<div class="col-12 progresstimer">
-				<div class="progress">
-				<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 100%"></div>
-				</div>
-			</div>
-
-			<div class="col-12">
-				<div>
-					<div class="input-group input-group-lg exercises">
-						<div class="input-group-prepend">
-							<span id="ex6" class="input-group-text"></span>
-						</div>
-						<input id="playerRes6" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-					</div>
-				</div>
-
-				<div>
-					<div class="input-group input-group-lg exercises">
-						<div class="input-group-prepend">
-							<span id="ex7" class="input-group-text"></span>
-						</div>
-						<input id="playerRes7" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-					</div>
-				</div>
-
-				<div>
-					<div class="input-group input-group-lg exercises">
-						<div class="input-group-prepend">
-							<span id="ex8" class="input-group-text"></span>
-						</div>
-						<input id="playerRes8" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-					</div>
-				</div>
-			</div>
-
-				<div class="col-12">
-					<div class="d-flex justify-content-center">
-						<div>
-								<button onclick="validatePage_5()" type="button" class="btn btn-outline-primary nextbtn">Weiter</button>
-						</div>
-					</div>
-				</div>
-
-		</div>
-	</div>
-`);
 
 // resultscreen
-const page_6 = ejs.render(`
+const page_4 = `
 	<div class="container maincont border">
 		<div class="row">
 
-			<div class="col-12">
+			<div id="resultBoxes" class="col-12">
 				<div class="border" style="padding-top:12px; margin-bottom:12px; margin-left:320px; margin-right: 320px;">
 					<p class="text-center donetxt" >Du hast es geschafft <span id="name_value" style="color: cadetblue"></span>! <br>Dein Resultat: </p>
 				</div>
 
-
-				<div>
-					<div class="input-group input-group-lg results">
-						<div class="input-group-prepend">
-							<span id="ex0" class="input-group-text"></span>
-						</div>
-						<div class="input-group-prepend">
-							<span id="res0" class="input-group-text" style="background: white;"></span>
-						</div>
-						<div class="input-group-prepend icon">
-							<button type="button" class="btn btn-outline-danger rounded-circle disabled" style="width: 50px; margin-left: 10px;"><i class="fas fa-times"></i></button>
-						</div>
-					</div>
-				</div>
-
-
-
-				<div>
-					<div class="input-group input-group-lg results">
-						<div class="input-group-prepend">
-							<span id="ex1" class="input-group-text"></span>
-						</div>
-						<div class="input-group-prepend">
-							<span id="res1" class="input-group-text" style="background: white;"></span>
-						</div>
-						<div class="input-group-prepend icon">
-							<button type="button" class="btn btn-outline-success rounded-circle disabled" style="width: 50px; margin-left: 10px;"><i class="fas fa-check"></i></button>
-						</div>
-					</div>
-				</div>
-
-
-
-				<div>
-					<div class="input-group input-group-lg results">
-						<div class="input-group-prepend">
-							<span id="ex2" class="input-group-text"></span>
-						</div>
-						<div class="input-group-prepend">
-							<span id="res2" class="input-group-text" style="background: white;"></span>
-						</div>
-						<div class="input-group-prepend icon">
-							<button type="button" class="btn btn-outline-danger rounded-circle disabled" style="width: 50px; margin-left: 10px;"><i class="fas fa-times"></i></button>
-						</div>
-					</div>
-				</div>
-
-
-				<div>
-					<div class="input-group input-group-lg results">
-						<div class="input-group-prepend">
-							<span id="ex3" class="input-group-text"></span>
-						</div>
-						<div class="input-group-prepend">
-							<span id="res3" class="input-group-text" style="background: white;"></span>
-						</div>
-						<div class="input-group-prepend icon">
-							<button type="button" class="btn btn-outline-success rounded-circle disabled" style="width: 50px; margin-left: 10px;"><i class="fas fa-check"></i></button>
-						</div>
-					</div>
-				</div>
-
-				<div>
-					<div class="input-group input-group-lg results">
-						<div class="input-group-prepend">
-							<span id="ex4" class="input-group-text"></span>
-						</div>
-						<div class="input-group-prepend">
-							<span id="res4" class="input-group-text" style="background: white;"></span>
-						</div>
-						<div class="input-group-prepend icon">
-							<button type="button" class="btn btn-outline-danger rounded-circle disabled" style="width: 50px; margin-left: 10px;"><i class="fas fa-times"></i></button>
-						</div>
-					</div>
-				</div>
-
-				<div>
-					<div class="input-group input-group-lg results">
-						<div class="input-group-prepend">
-							<span id="ex5" class="input-group-text"></span>
-						</div>
-						<div class="input-group-prepend">
-							<span id="res5" class="input-group-text" style="background: white;"></span>
-						</div>
-						<div class="input-group-prepend icon">
-							<button type="button" class="btn btn-outline-danger rounded-circle disabled" style="width: 50px; margin-left: 10px;"><i class="fas fa-times"></i></button>
-						</div>
-					</div>
-				</div>
-
-				<div>
-					<div class="input-group input-group-lg results">
-						<div class="input-group-prepend">
-							<span id="ex6" class="input-group-text"></span>
-						</div>
-						<div class="input-group-prepend">
-							<span id="res6" class="input-group-text" style="background: white;"></span>
-						</div>
-						<div class="input-group-prepend icon">
-							<button type="button" class="btn btn-outline-danger rounded-circle disabled" style="width: 50px; margin-left: 10px;"><i class="fas fa-times"></i></button>
-						</div>
-					</div>
-				</div>
-
-				<div>
-					<div class="input-group input-group-lg results">
-						<div class="input-group-prepend">
-							<span id="ex7" class="input-group-text"></span>
-						</div>
-						<div class="input-group-prepend">
-							<span id="res7" class="input-group-text" style="background: white;"></span>
-						</div>
-						<div class="input-group-prepend icon">
-
-						</div>
-					</div>
-				</div>
-
-				<div>
-					<div class="input-group input-group-lg results">
-						<div class="input-group-prepend">
-							<span id="ex8" class="input-group-text"></span>
-						</div>
-						<div class="input-group-prepend">
-							<span id="res8" class="input-group-text" style="background: white;"></span>
-						</div>
-						<div class="input-group-prepend icon">
-
-						</div>
-					</div>
-				</div>
-
-				<div class="border" style="padding-top:12px; margin-top: 10px; margin-left:320px; margin-right: 320px;">
+				<div id="resultEndBox" class="border" style="padding-top:12px; margin-top: 10px; margin-left:320px; margin-right: 320px;">
 					<p class="text-center donetxt"><span id="right_value"></span>/<span id="number_of_exercises"></span> Richtig</p>
 					<p class="text-center donetxt" style="color:coral">+ <span id="pointsAdd"></span> Punkte</p>
 				</div>
@@ -435,29 +168,37 @@ const page_6 = ejs.render(`
 
 		</div>
 	</div>
-`);
+`;
+
+// one exerciseResult box
+const exerciseResultBoxGenerator = (index) => `
+	<div class="input-group input-group-lg results">
+		<div class="input-group-prepend">
+			<span id="ex${index}" class="ex-result input-group-text"></span>
+		</div>
+		<div class="input-group-prepend">
+			<span id="res${index}" class="res-result input-group-text" style="background: white;"></span>
+		</div>
+		<div class="input-group-prepend icon"></div>
+	</div>`;
 
 // rankscreen
-const page_7 = ejs.render(`
+const page_5 = `
 	<div class="container maincont border">
 		<div class="row">
 
 			<div class="col-12">
-					<table class="table">
-						<thead class="thead-dark">
-							<tr>
-
+				<table class="table">
+					<thead class="thead-dark">
+						<tr>
 							<th scope="col">Name</th>
 							<th scope="col">Punkte</th>
 							<th scope="col">Gespielte Spiele</th>
 							<th scope="col">Richtig / von Aufgaben</th>
-
-							</tr>
-						</thead>
-						<tbody id="playedGames">
-
-						</tbody>
-					</table>
+						</tr>
+					</thead>
+					<tbody id="playedGames"></tbody>
+				</table>
 			</div>
 
 			<div class="col-12">
@@ -471,13 +212,13 @@ const page_7 = ejs.render(`
 
 					<div class="p-2 bd-highlight">
 						<div>
-							<button onclick="endAfterPage_7();" type="button" class="btn btn-outline-primary nextbtn">Fertig</button>
+							<button onclick="endAfterPage_5();" type="button" class="btn btn-outline-primary nextbtn">Fertig</button>
 						</div>
 					</div>
 
 					<div class="p-2 bd-highlight">
 						<div>
-							<button onclick="validatePage_7();" type="button" class="btn btn-outline-primary nextbtn">Nochmal!</button>
+							<button onclick="validatePage_5();" type="button" class="btn btn-outline-primary nextbtn">Nochmal!</button>
 						</div>
 					</div>
 
@@ -486,4 +227,4 @@ const page_7 = ejs.render(`
 
 		</div>
 	</div>
-`);
+`;

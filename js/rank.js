@@ -1,10 +1,17 @@
-// ranking list
+// #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #
+//  ____       _      _   _   _  __
+// |  _ \     / \    | \ | | | |/ /
+// | |_) |   / _ \   |  \| | | ' /
+// |  _ <   / ___ \  | |\  | | . \
+// |_| \_\ /_/   \_\ |_| \_| |_|\_\
+
+
 
 
 // sort rank by highest - lowest points
 
 function sortRank() {
-	gameData.rank.sort(function(a,b){
+	gameData.rank.sort(function(a,b) {
 		return b.points - a.points;
 	});
 };
@@ -25,15 +32,15 @@ function appear() {
 		<td id="p_numberOfRightAndAllGames"> ` + player.rightAnswers + "/" + player.numberOfAllExercises + ` </td>
 		</tr>
 		`
-	}
+	};
 	console.log("stats will appear...");
 };
 
 
 
 
-// 3. loop over rank (create new or add to existing)		// 4. existing => add values..
-															//	new => new obj in rank, sort
+// 3. loop over rank (create new or add to existing)
+
 function rankLoop() {
 	const thisGame = {
 		PLAYER_name: gameData.playerName,
@@ -55,28 +62,17 @@ function rankLoop() {
 		if (gameFromRank.name === thisGame.PLAYER_name) {
 			foundGame = gameFromRank;
 			break;
-			// console.log("\t name === thisGame.PLAYER_name =)");
-
-
-		} // else {
-			// console.log("\t name !== thisGame.PLAYER_name =)");
-
-
-
-		// }
-	}
+		};
+	};
 
 	if (foundGame != null) {
-		// game wurde gefunden
-
+		// game found -> add values to existing obj
 		foundGame.points = foundGame.points + thisGame.PLAYER_points;
 		foundGame.games_played = foundGame.games_played + thisGame.PLAYER_gameDone;
 		foundGame.rightAnswers = foundGame.rightAnswers + thisGame.PLAYER_rightAnswers;
 		foundGame.numberOfAllExercises = foundGame.numberOfAllExercises + thisGame.PLAYER_numberOfExercises;
-
 	} else {
-		// game wurde nicht gefunden
-
+		// game not found -> new obj in rank
 		gameData.rank.push({
 				name: thisGame.PLAYER_name,
 				points: thisGame.PLAYER_points,
@@ -84,9 +80,7 @@ function rankLoop() {
 				rightAnswers: thisGame.PLAYER_rightAnswers,
 				numberOfAllExercises: thisGame.PLAYER_numberOfExercises,
 		});
-
-	}
-
+	};
 	sortRank();
 	console.log("looping over rank = done");
 };

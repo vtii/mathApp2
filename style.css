@@ -54,21 +54,21 @@
 .results {
 	padding-top: 10px;
 	padding-bottom: 10px;
-	padding-left: 315px;
+	padding-left: 378px;
 	padding-right: 250px;
 }
 .donetxt {
 	font-size: 20px;
 	font-weight: 100;
 }
-#ex0, #ex1, #ex2, #ex3, #ex4, #ex5, #ex6, #ex7, #ex8 {
+.ex-result {
 	width: 150px;
 }
-#res0, #res1, #res2, #res3, #res4, #res5, #res6, #res7, #res8 {
+.res-result {
 	width: 160px;
 }
-#clockdiv {
+/* #clockdiv {
 	text-align: center;
     font-size: 45px;
     font-weight: 100;
-}
+} */
