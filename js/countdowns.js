@@ -26,6 +26,8 @@ let onTimeout0 = () => {
 let onTick0 = () => {
 	timerState0.left -= 1;
 
+	setProgressbarWidth(timerState0)
+
 	// console.log("timerState0.left: ", timerState0.left);
 
 	document.getElementById("countdown0").innerHTML = timerState0.left;
@@ -66,6 +68,8 @@ let onTimeout1 = () => {
 
 let onTick1 = () => {
 	timerState1.left -= 1;
+
+	setProgressbarWidth(timerState1)
 
 	// console.log("timerState1.left: ", timerState1.left);
 
@@ -115,6 +119,8 @@ let onTimeout2 = () => {
 let onTick2 = () => {
 	timerState2.left -= 1;
 
+	setProgressbarWidth(timerState2)
+
 	// console.log("timerState2.left: ", timerState2.left);
 
 	document.getElementById("countdown2").innerHTML = timerState2.left;
@@ -124,3 +130,30 @@ let onTick2 = () => {
 		onTimeout2();
 	}
 };
+
+
+// progressbar
+
+function scale(input, IN_MIN, IN_MAX, OUT_MIN, OUT_MAX) {
+	let percent = (input - IN_MIN) / (IN_MAX - IN_MIN);
+	return percent *  (OUT_MAX - OUT_MIN) + OUT_MIN;
+}
+
+function scaleTimer(currentTimerValue, maxTimerValue) {
+	return scale(currentTimerValue, 0, maxTimerValue, 0, 100);
+}
+
+function setProgressbarWidth(timerState) {
+
+	let percent = scaleTimer(timerState.left, gameData.timer);
+	// console.log("percent is:", percent);
+
+	let progressbarELEMENT = document.querySelector(".progress-bar");
+	progressbarELEMENT.style.width = percent + "%";
+
+	if (timerState.left <= 10) {
+		progressbarELEMENT.classList.replace("bg-warning", "bg-danger");
+	} else if (timerState.left <= 20) {
+		progressbarELEMENT.classList.replace("bg-success", "bg-warning");
+	}
+}

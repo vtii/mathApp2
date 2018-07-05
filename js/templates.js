@@ -111,7 +111,7 @@ const page_3 = ejs.render(`
 
 			<div class="col-12 progresstimer">
 				<div class="progress">
-					<div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%"></div>
+					<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 100%"></div>
 				</div>
 			</div>
 
@@ -171,7 +171,7 @@ const page_4 = ejs.render(`
 
 			<div class="col-12 progresstimer">
 				<div class="progress">
-					<div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 50%"></div>
+				<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 100%"></div>
 				</div>
 			</div>
 
@@ -232,7 +232,7 @@ const page_5 = ejs.render(`
 
 			<div class="col-12 progresstimer">
 				<div class="progress">
-					<div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 75%"></div>
+				<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 100%"></div>
 				</div>
 			</div>
 
