@@ -7,16 +7,14 @@
 // (countdown exercises)
 
 
-
-
 let timerState = {
 	left: null,
 	intervalHandle: null,
 };
 
 let onTimeout0 = () => {
-	console.log("time is up! calling validatePage_3");
-	console.log(gameData);
+	// console.log("time is up! calling validatePage_3");
+	// console.log(gameData);
 	validatePage_3();
 };
 

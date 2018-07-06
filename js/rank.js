@@ -33,7 +33,7 @@ function appear() {
 		</tr>
 		`
 	};
-	console.log("stats will appear...");
+	// console.log("stats will appear...");
 };
 
 
@@ -50,14 +50,14 @@ function rankLoop() {
 		PLAYER_numberOfExercises: gameData.numberOfExercises,
 	};
 
-	console.log("starting rank loop");
+	// console.log("starting rank loop");
 
 	let foundGame = null;
 
 	for (let i = 0; i < gameData.rank.length; i++) {
 		let gameFromRank = gameData.rank[i];
 
-		console.log(`\t${i}: ${gameFromRank.name}: ${gameFromRank.points}`);
+		// console.log(`\t${i}: ${gameFromRank.name}: ${gameFromRank.points}`);
 
 		if (gameFromRank.name === thisGame.PLAYER_name) {
 			foundGame = gameFromRank;
@@ -82,34 +82,5 @@ function rankLoop() {
 		});
 	};
 	sortRank();
-	console.log("looping over rank = done");
+	// console.log("looping over rank = done");
 };
-
-
-
-
-/* TODO :
-1. nach dem spiel daten sammeln
-2. bisherigen rank laden
-3. loop über bisherigen rank (neu oder bekannt)
-4. bekannt => update -> ++spiele, ++punkte,
-	unbekannt => neuer eintrag in rank, sortieren
-5. rank speichern
-*/
-
-
-
-
-
-
-
-
-// function save(data) {
-// 		const text = JSON.stringify(data);
-// 		localStorage.setItem("test", text)
-// 	}
-//
-// 	function load() {
-// 		const text = localStorage.getItem("test") || "[]"
-// 		return JSON.parse(text);
-// 	}

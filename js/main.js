@@ -16,11 +16,11 @@ function initializeGameState(playerName = null) {
 		currentExercisePage: 0,
 
 		exerciseConfig: {
-			pages: 3,
-			exercisesPerPage: 3,
+			pages: null,
+			exercisesPerPage: null,
 		},
 	};
-}
+};
 // #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #
 // #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #
 
@@ -79,7 +79,7 @@ function exerciseGenerator() {
 // [index] for exercises [0-8]
 function setIndexForExercise(index, page) {
 	const exercisesPerPage = gameData.exerciseConfig.exercisesPerPage; // 3
-	let realExerciseIndex = index + (page * exercisesPerPage)
+	let realExerciseIndex = index + (page * exercisesPerPage);
 
 	document.getElementById(`ex${index}`).innerHTML = gameData.exercises[realExerciseIndex].a + gameData.exercises[realExerciseIndex].operator + gameData.exercises[realExerciseIndex].b + " = ";
 };
@@ -89,7 +89,7 @@ function setExercises(page) {
 
 	for (let i = 0; i < exercisesPerPage; i++) {
 		setIndexForExercise(i, page);
-	}
+	};
 };
 
 function setResultExercises() {

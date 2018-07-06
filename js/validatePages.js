@@ -1,11 +1,17 @@
 // #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #
 // #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #
 //
-//
-//
-//	Math challenge simulator
-//
-//
+//  __  __           _     _                _               _   _
+// |  \/  |   __ _  | |_  | |__       ___  | |__     __ _  | | | |   ___   _ __     __ _    ___
+// | |\/| |  / _` | | __| | '_ \     / __| | '_ \   / _` | | | | |  / _ \ | '_ \   / _` |  / _ \
+// | |  | | | (_| | | |_  | | | |   | (__  | | | | | (_| | | | | | |  __/ | | | | | (_| | |  __/
+// |_|  |_|  \__,_|  \__| |_| |_|    \___| |_| |_|  \__,_| |_| |_|  \___| |_| |_|  \__, |  \___|
+// 																				|___/
+//                         _                       _           _
+//                   ___  (_)  _ __ ___    _   _  | |   __ _  | |_    ___    _ __
+//					/ __| | | | '_ ` _ \  | | | | | |  / _` | | __|  / _ \  | '__|
+//					\__ \ | | | | | | | | | |_| | | | | (_| | | |_  | (_) | | |
+//					|___/ |_| |_| |_| |_|  \__,_| |_|  \__,_|  \__|  \___/  |_|
 //
 // #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #
 // #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #
@@ -26,9 +32,10 @@ function validatePage_0() {
 	} else {
 		// fill name into game data obj
 		gameData.playerName = nameInput.value;
+		// continue to next screen
 		document.getElementById("app").innerHTML = page_1;
 	};
-	console.log("name of the player is:", nameInput.value);
+	// console.log("name of the player is:", nameInput.value);
 };
 
 
@@ -40,7 +47,8 @@ function validatePage_0() {
 // | |      / _ \ \ \ / /  / _ \ | |   \___ \   / _ \ | |  / _ \  / __| | __| / __|  / __| | '__|  / _ \  / _ \ | '_ \
 // | |___  |  __/  \ V /  |  __/ | |    ___) | |  __/ | | |  __/ | (__  | |_  \__ \ | (__  | |    |  __/ |  __/ | | | |
 // |_____|  \___|   \_/    \___| |_|   |____/   \___| |_|  \___|  \___|  \__| |___/  \___| |_|     \___|  \___| |_| |_|
-// (three levels => timer for each level)
+// (three levels -> timer for each level)
+// (input for -> how many exercises and how many exercisepages)
 
 function validatePage_1() {
 
@@ -48,9 +56,11 @@ function validatePage_1() {
 	// 0 = Easy, 1 = Normal, 2 = Hard
 	// 0 = 60sec, 1 = 45sec, 2 = 30sec
 
+	let forHowManyExercisesInput = document.getElementById("howManyExercises");
+	let forHowManyExercisePagesInput = document.getElementById("howManyExercisePages")
 	let lvlRadio = document.getElementsByName("lvl");
-	let lvl_value = null; //level 0, 1, 2
-	let levelTimer = null; //timelimit 60, 45, 30
+	let lvl_value = null; // level 0, 1, 2
+	let levelTimer = null; // timelimit 60, 45, 30
 
 	for (i = 0; i < lvlRadio.length; i++) {
 
@@ -58,9 +68,25 @@ function validatePage_1() {
 			lvl_value = lvlRadio[i].value;
 			document.getElementById("app").innerHTML = page_2;
 			gameData.level = parseInt(lvl_value, 10);
-			console.log("you picked level:", gameData.level);
+			// console.log("you picked level:", gameData.level);
 		}
 	};
+
+	if (!forHowManyExercisesInput.value) {
+		gameData.exerciseConfig.exercisesPerPage = 3;
+	} else {
+		// set number of exercises per page into game data obj
+		gameData.exerciseConfig.exercisesPerPage = forHowManyExercisesInput.value;
+	};
+	// console.log("how many exercises? :", gameData.exerciseConfig.exercisesPerPage);
+
+	if (!forHowManyExercisePagesInput.value) {
+		gameData.exerciseConfig.pages = 3;
+	} else {
+		// set number of exercises per page into game data obj
+		gameData.exerciseConfig.pages = forHowManyExercisePagesInput.value;
+	};
+	// console.log("how many exercise pages? :", gameData.exerciseConfig.pages);
 
 	if (lvl_value == null) {
 		alert("Level not selected, pick a level. Thanks!");
@@ -69,15 +95,15 @@ function validatePage_1() {
 
 	if (lvl_value == 0) {
 		levelTimer = 60;
-		console.log("difficulty is set to: easy");
+		// console.log("difficulty is set to: easy");
 	} else if (lvl_value == 1) {
 		levelTimer = 45;
-		console.log("difficulty is set to: normal");
+		// console.log("difficulty is set to: normal");
 	} else if (lvl_value == 2) {
 		levelTimer = 30;
-		console.log("difficulty is set to: hard");
+		// console.log("difficulty is set to: hard");
 	}
-	console.log("timer is set to:", levelTimer);
+	// console.log("timer is set to:", levelTimer);
 	gameData.timer = levelTimer;
 
 	// set the counter for exercises
@@ -89,10 +115,11 @@ function validatePage_1() {
 	for (let i = 0; i < exerciseCount; i++) {
 		gameData.exercises.push(exerciseGenerator());
 	}
+
 	setINFO();
 	// exerciseGenerator();
 	allResults();
-	console.log("gameData", gameData);
+	// console.log("gameData", gameData);
 };
 
 
@@ -118,10 +145,12 @@ function validatePage_2() {
 		exerciseInputBoxELEMENT.innerHTML = exerciseInputBoxGenerator(i);
 		exerciseInputBoxesELEMENT.appendChild(exerciseInputBoxELEMENT);
 	};
-	// get and set [?] exercises for first screen
+	// get and set [x] exercises for first screen
 	setExercises(gameData.currentExercisePage);
 	// countdown for exercises
 	timerState.intervalHandle = setInterval(onTick0, 1000);
+	// show - how many pages of exercise
+	document.getElementById("pages").innerHTML = gameData.exerciseConfig.pages;
 
 };
 
@@ -139,7 +168,7 @@ function validatePage_2() {
 function setIndexForExerciseInput(index, page) {
 
 	const exercisesPerPage = gameData.exerciseConfig.exercisesPerPage;
-	let realExerciseIndex = index + (page * exercisesPerPage)
+	let realExerciseIndex = index + (page * exercisesPerPage);
 
 	let r = document.getElementById(`playerRes${index}`);
 	gameData.exercises[realExerciseIndex].input = parseInt(r.value, 10);
@@ -158,14 +187,16 @@ function validatePage_3() {
 
 	gameData.currentExercisePage++;
 
+	document.getElementById("status").innerHTML = page + 2 + "/" + gameData.exerciseConfig.pages;
+
 	if (gameData.currentExercisePage < gameData.exerciseConfig.pages) {
-		// show next exercise page
+		// show next exercises, reset timer
 		setExercises(gameData.currentExercisePage);
 		timerState.left = gameData.timer + 1;
 		timerState.intervalHandle = setInterval(onTick0, 1000);
 	} else {
-		backToResult()
-	}
+		backToResult();
+	};
 };
 
 
@@ -183,8 +214,11 @@ function validatePage_6() {
 
 	// next screen
 	document.getElementById("app").innerHTML = page_5;
+	// loop over rank, add new player or add points to existing player, sort rank (highest points on top)
 	rankLoop();
+	// rank will appear
 	appear();
+	// save into localStorage
 	save(gameData.rank);
 };
 
@@ -216,11 +250,10 @@ function endAfterPage_5() {
 // black to results
 function backToResult() {
 
-	//back to resultscreen
 		// show resultscreen
 		document.getElementById("app").innerHTML = page_4;
 
-		// exerciseResultBox für jede exercise generieren
+		// generate exerciseResultBox for each exercise
 		let resultBoxesELEMENT = document.getElementById("resultBoxes");
 		let resultEndBoxELEMENT = document.getElementById("resultEndBox");
 		for (let i = 0; i < gameData.exercises.length; i++ ) {
@@ -229,7 +262,7 @@ function backToResult() {
 			resultBoxesELEMENT.insertBefore(exerciseResultBox, resultEndBoxELEMENT);
 		}
 
-		// get and set all exercises for result screen
+		// get and set all exercises, results, points.. for result screen
 		checkRight();
 		checkExerciseResult();
 		setResultInput();

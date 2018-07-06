@@ -45,6 +45,20 @@ const page_1 = `
 				</div>
 			</div>
 
+			<div class="howManyExercises input-group input-group-lg">
+				<div class="input-group-prepend">
+					<span class="ex-result input-group-text" id="inputGroup-sizing-lg">Aufgaben</span>
+				</div>
+				<input id="howManyExercises" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="3">
+			</div>
+
+			<div class="howManyExercisePages input-group input-group-lg">
+				<div class="input-group-prepend">
+					<span class="ex-result input-group-text" id="inputGroup-sizing-lg">Seiten</span>
+				</div>
+				<input id="howManyExercisePages" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="3">
+			</div>
+
 			<div class="col-12">
 				<div class="d-flex justify-content-center">
 					<div>
@@ -68,11 +82,11 @@ const page_2 = `
 
 					Bei diesem Schwierigkeitsgrad hast du <span id="timer_value" style="font-size: 30px; font-weight: 100; color:cadetblue"></span> Sekunden Zeit für die Aufgabengruppen. <br><br>
 
-					Falls du schneller bist, kannst du weiter klicken für die nächsten drei Aufgaben. <br><br>
+					Der Timer wird <strong>für jede Aufgabengruppe neu gesetzt!</strong> <br><br>
 
-					Der Timer wird <strong>für jede Aufgabengruppe neu gesetzt</strong>! Keine Panik :) <br><br>
+					Falls du schneller bist, kannst du weiter klicken für die nächsten Aufgaben. <br><br>
 
-					Falls du es in dieser Zeit nicht schaffen solltest geht es automatisch weiter. <br><br>
+					Solltest du es in dieser Zeit nicht schaffen, geht es automatisch weiter. <br><br>
 
 					Für jede richtige Antwort gibts <span style="font-size: 20px; color: green;">+2</span> punkte. <br><br>
 
@@ -102,8 +116,8 @@ const page_3 = `
 			<div class="col-12">
 				<div class="border" style="padding-top:12px; margin-left:320px; margin-right: 320px;">
 					<p class="text-center donetxt" style="font-size: 50px">
+						<span id="status">1/<span id="pages"></span></span> <br>
 						<span id="countdown0">START!</span>
-
 					</p>
 				</div>
 			</div>
@@ -136,7 +150,7 @@ const exerciseInputBoxGenerator = (index) => `
 		<div class="input-group-prepend">
 			<span id="ex${index}" class="ex-result input-group-text"></span>
 		</div>
-		<input id="playerRes${index}" type="number" class="res-result form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+		<input id="playerRes${index}" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
 	</div>
 `;
 
@@ -180,7 +194,8 @@ const exerciseResultBoxGenerator = (index) => `
 			<span id="res${index}" class="res-result input-group-text" style="background: white;"></span>
 		</div>
 		<div class="input-group-prepend icon"></div>
-	</div>`;
+	</div>
+`;
 
 // rankscreen
 const page_5 = `
